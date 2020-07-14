@@ -1,0 +1,9 @@
+e318d4ed2d2be7eab62016c3758dc60d *DESCRIPTION
+d778948fad546b0db1184a42b01d638e *NAMESPACE
+85de800347caf2f4d505bb8a3ae3c9ed *R/abbr2bib.R
+6b54502730ae960be971d5d0b2b2d350 *R/journal_abbreviations_lower_all.R
+6a49db2e957729913a0c44a3b5f88917 *R/sysdata.rda
+50a922e9c0ac51bf6cc85a77bb93d0dc *README.md
+d0a72a215a0e702ea90d925997f7e684 *inst/extdata/testfile_1.bib
+ed2028ec4b1975babbfff385a8eb9bb0 *man/abbr2bib.Rd
+e4db9e9c9d7737ca7be023ac62041f34 *man/journal_abbreviations_lower_all.Rd
