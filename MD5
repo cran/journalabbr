@@ -1,4 +1,4 @@
-43db39cf6f43162b1775d4a1740852ae *DESCRIPTION
+0cb37b95ade11dedd2613d1b251d4e25 *DESCRIPTION
 44061a0589d0ec07b810924c173c28e6 *NAMESPACE
 e2210695c03c247cc1c3be1b5576d585 *R/abbr2bib.R
 337cb9831766e323ee86427ad9fbeef5 *R/abbrTable.R
@@ -8,7 +8,7 @@ df15e77f2f490a13d7ba3d2510a369d5 *R/sysdata.rda
 bee1ed4ec4c28dfc5fb51f16cd5c7878 *R/write_tib2bib.R
 4a0f03c004c9926a8154296c91dbef37 *README.md
 d0a72a215a0e702ea90d925997f7e684 *inst/extdata/testfile_1.bib
-87a20bcb6960fc017fc87e53944420b0 *inst/shiny-examples/appckwx/app.R
+0c1de96368077befba79f20f42f7c5f0 *inst/shiny-examples/appckwx/app.R
 b69154694c4813d249fe9d1575bb2c32 *man/abbr2bib.Rd
 e96656d263335ad8af1787a29b4a0ab8 *man/abbrTable.Rd
 179617ea448c6cacdc145063cb74d08a *man/read_bib2tib.Rd
