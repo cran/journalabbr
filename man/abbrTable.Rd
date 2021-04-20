@@ -16,7 +16,7 @@ A data frame with columns:
 }
 }
 \source{
-https://github.com/JabRef/abbrv.jabref.org/journals
+\url{https://github.com/JabRef/abbrv.jabref.org}
 }
 \usage{
 abbrTable
@@ -24,5 +24,12 @@ abbrTable
 \description{
 There are four columns, each separated by a semicolon (;), as follows
 journal  journal_abbr journal_lower. count_dot
+}
+\examples{
+require(journalabbr)
+require(stringi)
+abbrTable = journalabbr:::abbrTable
+# Unicode to UTF-8
+abbrTable = as.data.frame(lapply(abbrTable, function(x)stringi::stri_unescape_unicode(x)))
 }
 \keyword{datasets}
