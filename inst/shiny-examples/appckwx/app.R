@@ -1,15 +1,10 @@
-library(shiny)
-library(stringr)
-library(stringi)
-library(data.table)
-require(rclipboard)
-library(knitr)
-library(rmarkdown)
-library(purrr)
-library(dplyr)
-library(tinytex)
-library(DT)
-library(journalabbr)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load("shiny", "stringr", "stringi", "data.table",
+               "rclipboard", "knitr", "rmarkdown", "purrr", "dplyr",
+               'tinytex','DT','journalabbr')
+
+
+
 #library(lubridate)
 #options(shiny.fullstacktrace = TRUE)
 options(shiny.sanitize.errors = FALSE)
@@ -364,7 +359,11 @@ reorder_bib_fun = function(filepath){
 clear_file()
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-  titlePanel( title = h2("自用参考文献样式调整", align = "left"), windowTitle = '自用参考文献样式调整' ),
+  titlePanel( title = h2("自用参考文献样式调整", align = "center"), windowTitle = '自用参考文献样式调整' ),
+  HTML("<p>注意: 1. 上传的tex文件最好能够在本地正常编译</p>"),
+  HTML("<p>&emsp;&emsp; &ensp; 2. 上传的bib文件仔细检查,这个涉及到最后的生成格式. 例如: 三个字的中国作者,eg: Shucai, Zou  应该写为 Shu-Cai, Zou </p>"),
+  HTML("<p>&emsp;&emsp; &ensp; 3. bug反馈:&nbsp;&nbsp; <a href='https://github.com/zoushucai/shiny_cankaowenxian/issues'>https://github.com/zoushucai/shiny_cankaowenxian/issues </a> or
+       <a href='https://github.com/zoushucai/journalabbr/issues'>https://github.com/zoushucai/journalabbr/issues </a> </p>"),
   rclipboardSetup(), # 剪切板设置,必须在开头声明,后面才能用,这是一段js的调用
   tabsetPanel(
     tabPanel("Input",
@@ -372,6 +371,7 @@ ui <- fluidPage(
                fileInput("file1_tex", "Choose tex File(文件编码:UTF-8)", accept = c("text/csv","text/comma-separated-values,text/plain",'.tex')),
                fileInput("file2_csl", "Choose csl File(文件编码:UTF-8)", accept = c("text/csv","text/comma-separated-values,text/plain",'.csl')),
                fileInput("file3_bib", "Choose bib File(文件编码:UTF-8)", accept = c("text/csv","text/comma-separated-values,text/plain",'.bbl')),
+               #fileInput("file4_addcsv", "Choose csv File(文件编码:UTF-8)", accept = c("text/csv","text/semicolon-separated-values,text/plain",'.csv')),
 
                fluidRow(
                  column(4,
@@ -401,7 +401,7 @@ ui <- fluidPage(
                actionButton("goButton", "Submit")
              )),
     tabPanel("Warning",
-             helpText("1, 上传文件时采用 UTF-8 编码.", br(),
+             helpText("1, 上传文件时采用 UTF-8 编码(不支持自定义期刊缩写).", br(),
                       "2, 上传文件到生成参考文献样式,需要花一定时间,还请耐心等待.",br(),
                       "3, 最终输出的参考文献结果还需要仔细检查,符合期刊要求.")
              #,HTML("<p><font color='red'>\n警告显示如下:\n</font></p>")  # 方法一:  直接使用HTML标签
@@ -821,7 +821,6 @@ server <- function(input, output) {
   ###### 输出运行环境 ####################
   output$out_runenvir <- renderPrint({
     print(list("sessionInfo"=sessionInfo(),
-               "RStudio.Version"=RStudio.Version(),
                "devtools::session_info"=devtools::session_info(),
                "pandoc_version" = rmarkdown::pandoc_version(),
                "dir"=dir()))
