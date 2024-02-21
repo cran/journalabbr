@@ -4,6 +4,19 @@
 # journalabbr
 
 <!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/journalabbr)](https://CRAN.R-project.org/package=journalabbr)
+![r-universe](https://fastverse.r-universe.dev/badges/journalabbr)
+[![downloads](http://cranlogs.r-pkg.org/badges/grand-total/journalabbr?color=blue)](https://cran.r-project.org/package=journalabbr)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/last-month/journalabbr?color=blue)](https://github.com/zoushucai/journalabbr)
+[![R build
+status](https://github.com/zoushucai/journalabbr/workflows/R-CMD-check/badge.svg)](https://github.com/zoushucai/journalabbr/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/zoushucai/journalabbr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/zoushucai/journalabbr?branch=main)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 ## Function
@@ -50,7 +63,7 @@ an equal sign `=`
 
 ``` r
 require(journalabbr)
-#> Loading required package: journalabbr
+#> 载入需要的程辑包：journalabbr
 path0 <- system.file("extdata", "testfile_1.bib", package = "journalabbr", mustWork = TRUE)
 temp <- abbr_bib(file = path0, out.file = tempfile(fileext = ".bib"))
 #> Warning in read_bib2dt(file): NA value exists in Citation Key, please check the
@@ -112,6 +125,14 @@ or run shiny
 ``` r
 journalabbr::run_example()
 ```
+
+or run shiny online
+
+website: <https://zoushucai.shinyapps.io/shiny_cankaowenxian/>
+
+- It needs to be manually pushed to `shinyapps.io`, and the
+  implementation is also very simple. Simply click the mouse in
+  `Rstudio` to operate it
 
 ### Access internal data
 
